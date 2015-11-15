@@ -1,8 +1,8 @@
 ﻿//Temporary comments data
 var data = [
-  { Author: "Daniel Lo Nigro", Text: "Hello ReactJS.NET World!" },
-  { Author: "Pete Hunt", Text: "This is one comment" },
-  { Author: "Jordan Walke", Text: "This is *another* comment" }
+  { Author: "Nicky Keyse", Text: "Hello ReactJS.NET World!" },
+  { Author: "Mike Hunt", Text: "This is one comment" },
+  { Author: "Hugh Jass", Text: "This is *another* comment" }
 ];
 //Comment Box
 var CommentBox = React.createClass({
@@ -16,7 +16,6 @@ var CommentBox = React.createClass({
       );
     }
 });
-
 //Comments List
 var CommentList = React.createClass({
   render: function() {
