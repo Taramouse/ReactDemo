@@ -8,6 +8,7 @@ using Microsoft.Dnx.Runtime;
 using Microsoft.Framework.Configuration;
 using Microsoft.Framework.DependencyInjection;
 using Microsoft.Framework.Logging;
+using React.AspNet;
 
 namespace ReactDemo
 {
@@ -29,6 +30,7 @@ namespace ReactDemo
         public void ConfigureServices(IServiceCollection services)
         {
             // Add MVC services to the services container.
+            services.AddReact();
             services.AddMvc();
 
             // Uncomment the following line to add Web API services which makes it easier to port Web API 2 controllers.
@@ -60,6 +62,26 @@ namespace ReactDemo
 
             // Add the platform handler to the request pipeline.
             app.UseIISPlatformHandler();
+
+            // Initialise ReactJS.NET. Must be before static files.
+            app.UseReact(config =>
+            {
+                // If you want to use server-side rendering of React components,
+                // add all the necessary JavaScript files here. This includes
+                // your components as well as all of their dependencies.
+                // See http://reactjs.net/ for more information. Example:
+                //config
+                //    .AddScript("~/Scripts/First.jsx")
+                //    .AddScript("~/Scripts/Second.jsx");
+
+                // If you use an external build too (for example, Babel, Webpack,
+                // Browserify or Gulp), you can improve performance by disabling
+                // ReactJS.NET's version of Babel and loading the pre-transpiled
+                // scripts. Example:
+                //config
+                //    .SetLoadBabel(false)
+                //    .AddScriptWithoutTransform("~/Scripts/bundle.server.js");
+            });
 
             // Add static files to the request pipeline.
             app.UseStaticFiles();
