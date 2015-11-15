@@ -1,5 +1,6 @@
-﻿{
+{
   "webroot": "wwwroot",
+  "scriptroot": "Scripts",
   "version": "1.0.0-beta8",
 
   "dependencies": {
@@ -15,7 +16,8 @@
     "Microsoft.Framework.Logging.Console": "1.0.0-beta8",
     "Microsoft.Framework.Logging.Debug": "1.0.0-beta8",
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-beta8",
-    "React.AspNet": "2.0.1"
+    "React.AspNet": "2.0.1",
+    "showdown": "0.9.0"
   },
 
   "commands": {
