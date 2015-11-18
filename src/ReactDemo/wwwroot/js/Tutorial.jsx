@@ -1,8 +1,8 @@
 //Temporary comments data
 var data = [
-  { Author: "Daniel Lo Nigro", Text: "Hello ReactJS.NET World!" },
-  { Author: "Pete Hunt", Text: "This is one comment" },
-  { Author: "Jordan Walke", Text: "This is *another* comment" }
+  { Author: "Nicky Keyse", Text: "Hello ReactJS.NET World!" },
+  { Author: "Mike Hunt", Text: "This is one comment" },
+  { Author: "Hugh Jass", Text: "This is *another* comment" }
 ];
 //Comment Box
 var CommentBox = React.createClass({
@@ -10,13 +10,12 @@ var CommentBox = React.createClass({
         return (
           <div className="commentBox">
             <h1>Comments</h1>
-           <CommentList data={this.props.data} />
+            <CommentList data={this.props.data} />
             <CommentForm />
           </div>
       );
     }
 });
-
 //Comments List
 var CommentList = React.createClass({
   render: function() {
@@ -58,6 +57,6 @@ var Comment = React.createClass({
     }
 });
 React.render(
-  <CommentBox data={data} />,
+  <CommentBox url="/comments" />,
   document.getElementById('content')
 );

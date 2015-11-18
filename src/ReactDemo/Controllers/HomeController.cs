@@ -1,15 +1,43 @@
-﻿using Microsoft.AspNet.Mvc;
-
-// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+﻿using System.Collections.Generic;
+using ReactDemo.Models;
+using Microsoft.AspNet.Mvc;
 
 namespace ReactDemo.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: /<controller>/
-        public IActionResult Index()
+        private static readonly IList<CommentModel> _comments;
+
+        static HomeController()
+        {
+            _comments = new List<CommentModel>
+            {
+                new CommentModel
+                {
+                    Author = "Nicky Keyse",
+                    Text = "Hello ReactJS.NET World!"
+                },
+                new CommentModel
+                {
+                    Author = "Mike Hunt",
+                    Text = "This is one comment"
+                },
+                new CommentModel
+                {
+                    Author = "Hugh Jass",
+                    Text = "This is *another* comment"
+                },
+            };
+        }
+
+        public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult Comments()
+        {
+            return Json(_comments);
         }
     }
 }
